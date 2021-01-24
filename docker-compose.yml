@@ -1,0 +1,28 @@
+version: "3"
+services:
+  src-db:
+    build: .
+    container_name: "postgres-11-src"
+    restart: always
+    ports:
+    - 5432:5432
+    volumes:
+    - ./docker-entrypoint-initdb.d/init-replication-extension.sql:/docker-entrypoint-initdb.d/init-replication-extension.sql
+    environment: 
+    - POSTGRES_PASSWORD=AAAaaa123!@#
+    - POSTGRES_USER=postgres
+    - POSTGRES_DB=booking-db
+  dst-db:
+    build: .
+    container_name: "postgres-11-dst"
+    restart: always
+    ports:
+    - 6432:5432
+    volumes:
+    - ./docker-entrypoint-initdb.d/init-replication-extension.sql:/docker-entrypoint-initdb.d/init-replication-extension.sql
+    environment: 
+    - POSTGRES_PASSWORD=AAAaaa123!@#
+    - POSTGRES_USER=postgres
+    - POSTGRES_DB=booking-db
+volumes:
+  data:

@@ -41,7 +41,7 @@ You need to have these installed in your system beforehand:
 Setup static IP on host  
 `sudo ifconfig lo0 alias 192.168.99.3`
 
-In the root directory, run `docker-compose up`. This spawns the 2 database containers with required linux packages and postgres plugin.
+In the root project directory, run `docker-compose up`. This spawns the 2 database containers with required linux packages and postgres plugin.
 
 Execute bash using root user in source postgres container by running `docker exec -u root -it $(docker ps -aqf "name=postgres-11-src$") /bin/bash`
 

@@ -43,7 +43,7 @@ Setup static IP on host
 
 In the root directory, run `docker-compose up`. This spawns the 2 database containers with required linux packages and postgres plugin.
 
-Execute bash in source postgres container. Run `docker ps` to get list of running containers, copy the source database's container ID then run `docker exec -u root -it {containerID} /bin/bash`
+Execute bash using root user in source postgres container by running `docker exec -u root -it $(docker ps -aqf "name=postgres-11-src$") /bin/bash`
 
 ### Environment Variables Setup
 
